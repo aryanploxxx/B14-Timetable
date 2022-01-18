@@ -1,0 +1,645 @@
+<html>
+    <head>
+        <title>B14 Timetable</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+		
+		<!-- WELCOME TO SOURCE CODE, NERD -->
+		
+        <style>
+            @font-face {
+                font-family: "Sunnys Spells";
+                src: url("SunnyspellsRegular-MV9ze.off" format(OpenType));
+            }
+            body{
+                background-image: linear-gradient(to right, #eecda3 , #EF629F);   
+            }
+            /* div{
+            } */
+            #wrapper{
+                /* position: absolute; */
+                /* max-width:45vw; */
+                max-width:650px;
+                /* max-height:50vw; */
+                margin: 0 auto;
+                /* margin-right:auto; */
+                /* text-align:center; */
+                /* overflow:scroll; */
+                /* border: 1px solid black; */
+            }
+            /* #wrapper {
+                margin: auto;
+            } */
+            hr {
+                width:50%;
+                /* align:center; */
+                border: 0;
+                height: 5px;
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            }
+            table {
+                text-align:center;
+                color: black;
+                font-family: 'Open Sans';
+                border-collapse: collapse;
+                border-radius:0px 0px 10px 10px;
+                /* min-width: 700px; */
+                /* margin: auto; */
+                margin-top: 10px;
+                /* border:1px solid black; */
+            }
+            td {
+                text-align: center; 
+                vertical-align: middle;
+                padding:15px;
+                border-collapse: collapse;
+                background-color: rgb(181,189,230,0.4);
+                /* border: 1px solid black; */
+            }
+            tr {
+                text-align: center; 
+                vertical-align: middle;
+            }
+            /* td:hover {
+                transform: scale(1.02,1.02);
+            } */
+            table tr:last-child td:first-child {
+                border-bottom-left-radius: 15px;
+            }
+
+            table tr:last-child td:last-child {
+                border-bottom-right-radius: 15px;
+            }
+            th{
+                padding:10px;
+                text-align: center; 
+                vertical-align: middle;
+                background-color: #6462F0;
+                color:#fff; /*white*/
+            }
+            a {
+                color:black;
+                /* text-decoration: underline; */
+                /* text-decoration-offset: 13px; */
+                text-decoration: none;
+                border-bottom: 2px solid white;
+                padding-bottom: 3px;
+                /* text-decoration-color: white; */
+            }
+            
+            p {
+                color:#16193c;
+                font-family: 'Sunny Spells';
+                font-weight: 50px;
+                font-size:90px;
+                /* position:absolute; */
+                margin:auto;
+                text-align:center;
+            }
+            sup {
+                color:#16193c;
+                font-family: 'Sunny Spells';
+                /* font-weight: 50px; */
+                font-size:30px;
+                /* position:absolute; */
+                margin:auto;
+                text-align:center;
+            }
+            .day {
+                writing-mode: vertical-rl;
+                text-orientation: upright;
+                letter-spacing: 5px;
+                background-color: rgba(0, 0, 0, 0);
+            }
+            .nav {
+            list-style: none;
+            /* border: 2px solid red; */
+            font-family: 'Cairo', sans-serif;
+            margin: 0px 28px;
+            height: auto;
+            font-size:20px;
+            color:white;
+            max-width: 500px;
+            margin:auto;
+            /* margin-top:-10px; */
+            }
+
+            .nav li {
+                background: #16193c;
+                border-radius: 10px;
+                height: auto;
+                width: auto;
+                margin: 6px 5px;
+                /* border: 2px solid blue; */
+                display: inline-block;
+                padding: 10px 30px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                /* top:12px; */
+                text-decoration:underline;
+            }
+
+            li:hover {
+                cursor: pointer;
+            }
+
+            /* #wrapper */
+
+
+        </style>
+        <script>
+            function mon() {
+            var a = document.getElementById("monday");
+            if (a.style.display === "none") {
+                a.style.display = "block";
+            } else {
+                a.style.display = "none";
+            }
+            }
+
+            function tues() {
+            var b = document.getElementById("tuesday");
+            if (b.style.display === "none") {
+                b.style.display = "block";
+            } else {
+                b.style.display = "none";
+            }
+            }
+
+            function wed() {
+            var c = document.getElementById("wednesday");
+            if (c.style.display === "none") {
+                c.style.display = "block";
+            } else {
+                c.style.display = "none";
+            }
+            }
+
+            function thurs() {
+            var d = document.getElementById("thursday");
+            if (d.style.display === "none") {
+                d.style.display = "block";
+            } else {
+                d.style.display = "none";
+            }
+            }
+
+            function fri() {
+            var e = document.getElementById("friday");
+            if (e.style.display === "none") {
+                e.style.display = "block";
+            } else {
+                e.style.display = "none";
+            }
+            }
+
+            function sat() {
+            var f = document.getElementById("saturday");
+            if (f.style.display === "none") {
+                f.style.display = "block";
+            } else {
+                f.style.display = "none";
+            }
+            }
+        </script>
+    </head>
+    <body>
+
+
+        <!-- <div id="wrapper"> -->
+        <!-- <div class="class"></div> -->
+        <p style="margin: auto;z-index:998;">B14 Timetable <sup>&copy; Aryan Gupta ^_^</sup></p> 
+        <!-- <span style="text-align:center;margin:auto;"> &copy; Aryan Gupta ^_^</span> -->
+        <!-- <br> -->
+        <!-- <button onclick="myFunction()">hi</button> -->
+        <!-- <br> -->
+
+
+        <ul class="nav" style="z-index: 999;">
+            <li onclick="mon()">Monday</li>
+            <li onclick="tues()">Tuesday</li>
+            <li onclick="wed()">Wednesday</li>
+            <li onclick="thurs()">Thursday</li>
+            <li onclick="fri()">Friday</li>
+            <li onclick="sat()">Saturday</li>
+        </ul>
+
+
+
+<header id="wrapper">
+        <!--MONDAY-->
+
+        <table id="monday" style="display:none;">  
+            <!-- style="display:none;" -->
+            <tr>
+                <!--  -->
+                <th class="day" rowspan=9 style="color:black; background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,255,255,0.7));">MONDAY</th>
+                <th class="day" rowspan=9></th>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>Links &nbsp; (Click to Join)</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">9-10</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;" rowspan="2">Practical English</td>
+                <td style="border-bottom: 1px solid grey;" rowspan="2"><a href="https://meet.google.com/kfv-yzbw-toc" target="_blank">https://meet.google.com/kfv-yzbw-toc</a></td>
+                <td style="border-bottom: 1px solid grey;" rowspan="2"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">10-11</td>
+                <!-- <td></td> -->
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">11-12</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture Physics</td>
+                <td style="border-bottom: 1px solid grey;">idk</td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;color:black;">12-1</td>
+                <td style="border-bottom: 1px solid grey;color:black;text-emphasis-style: bold;font-weight:bold" colspan=2>LUNCH</td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;"s>1-2</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;" rowspan="2">Lab Physics-1</td>
+                <td style="border-bottom: 1px solid grey;" rowspan="2"><a href="https://meet.google.com/qvu-bcbr-aui" target="_blank">https://meet.google.com/qvu-bcbr-aui</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">2-3</td>
+                <!-- <td></td> -->
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;">3-4</td>
+                <td rowspan="2" style="border-right: 1px solid grey;">SDF Lab-A</td>
+                <td rowspan="2"><a href="https://meet.google.com/qbf-rrco-gbv" target="_blank">https://meet.google.com/qbf-rrco-gbv</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;">4-5</td>
+                <!-- <td></td> -->
+                <td></td>
+            </tr>
+        </table>
+
+
+<!-- <br> -->
+
+
+
+
+
+
+
+
+        <!-- TUESDAY -->
+        
+
+        <table id="tuesday" style="display:none;">
+            <tr>
+                <th class="day" rowspan=9 style="color:black;background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,255,255,0.7));">TUESDAY</th>
+                <th class="day" rowspan=9></th>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>Links &nbsp; (Click to Join)</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">9-10</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">10-11</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture Physics</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/pkc-spjb-dsr" target="_blank">https://meet.google.com/pkc-spjb-dsr</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">11-12</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture SDF-I</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/mwk-wfsv-pgt" target="_blank">https://meet.google.com/mwk-wfsv-pgt</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;color:black;">12-1</td>
+                <td style="border-bottom: 1px solid grey;color:black;text-emphasis-style: bold;font-weight:bold" colspan=2>LUNCH</td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">1-2</td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">2-3</td>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">Lecture Maths</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/dvn-wvwj-fim" blank="_blank">https://meet.google.com/dvn-wvwj-fim</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">3-4</td>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;">4-5</td>
+                <td style="border-right: 1px solid grey;">Tutorial Physics</td>
+                <td>exclusive online</td>
+                <td></td>
+            </tr>
+        </table>
+
+
+   
+<!-- <br> -->
+
+
+
+
+        <!-- Wednesday -->
+        
+
+        <table id="wednesday" style="display:none;">
+            <tr>
+                <th class="day" rowspan=9 style="color:black;background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,255,255,0.7));">WEDNESDAY</th>
+                <th class="day" rowspan=9></th>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>Links &nbsp; (Click to Join)</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">9-10</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">10-11</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Bridge Physics</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/hqa-ckah-gug" target="_blank">https://meet.google.com/hqa-ckah-gug<br>(might change)</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">11-12</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture English</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/ubk-eusz-tdh" target="_blank">https://meet.google.com/ubk-eusz-tdh</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;color:black;">12-1</td>
+                <td style="border-bottom: 1px solid grey;color:black;text-emphasis-style: bold;font-weight:bold" colspan=2>LUNCH</td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">1-2</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture SDF-I</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/ben-iesp-zbv" target="_blank">https://meet.google.com/ben-iesp-zbv</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">2-3</td>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">Tutorial SDF-I</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/aue-twgg-rfy" blank="_blank">https://meet.google.com/aue-twgg-rfy</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">3-4</td>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;">4-5</td>
+                <td style="border-right: 1px solid grey;"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+
+<!-- <br> -->
+
+        <!-- Thursday -->
+        
+
+        <table id="thursday" style="display:none;">
+            <tr>
+                <th class="day" rowspan=9 style="color:black;background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,255,255,0.7));">THURSDAY</th>
+                <th class="day" rowspan=9></th>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>Links &nbsp; (Click to Join)</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">9-10</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;"> Tutorial Maths</td>
+                <td style="border-bottom: 1px solid grey;">idk</td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">10-11</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture SDF-I </td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/odm-dkjt-uuc" target="_blank">https://meet.google.com/odm-dkjt-uuc</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">11-12</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture Physics</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/odp-wttk-bpb" target="_blank">https://meet.google.com/odp-wttk-bpb</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;color:black;">12-1</td>
+                <td style="border-bottom: 1px solid grey;color:black;text-emphasis-style: bold;font-weight:bold" colspan=2>LUNCH</td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">1-2</td>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">2-3</td>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">3-4</td>
+                <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">Lecture Maths</td>
+                <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/bhk-xihg-vcj" target="_blank">https://meet.google.com/bhk-xihg-vcj</a></td>
+                <td style="border-bottom: 1px solid grey;"></td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid grey;">4-5</td>
+                <td style="border-right: 1px solid grey;"> Bridge Maths</td>
+                <td><a href="https://meet.google.com/nrj-rnfb-kfp" target="_blank">https://meet.google.com/nrj-rnfb-kfp</a></td>
+                <td></td>
+            </tr>
+        </table>
+
+
+
+            <!-- Friday -->
+    
+
+            <table id="friday" style="display:none;">
+                <tr>
+                    <th class="day" rowspan=9 style="color:black;background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,255,255,0.7));">FRIDAY</th>
+                    <th class="day" rowspan=9></th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>Links &nbsp; (Click to Join)</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">9-10</td>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">10-11</td>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;" rowspan=2>SDF Lab-B </td>
+                    <td style="border-bottom: 1px solid grey;"rowspan=2><a href="https://meet.google.com/shn-tnbm-ahn" target="_blank">https://meet.google.com/shn-tnbm-ahn</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">11-12</td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                    <!-- <td></td> -->
+                    <!-- <td style="border-bottom: 1px solid grey;"></td> -->
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;color:black;">12-1</td>
+                    <td style="border-bottom: 1px solid grey;color:black;text-emphasis-style: bold;font-weight:bold" colspan=2>LUNCH</td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">1-2</td>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">2-3</td>
+                    <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">3-4</td>
+                    <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid grey;">4-5</td>
+                    <td style="border-right: 1px solid grey;"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+
+            <!-- Saturday -->
+    
+
+            <table id="saturday" style="display:none;">
+                <tr>
+                    <th class="day" rowspan=9 style="color:black;background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,255,255,0.7));">SATUURDAY</th>
+                    <th class="day" rowspan=9></th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>Links &nbsp; (Click to Join)</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">9-10</td>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">10-11</td>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Bridge Maths</td>
+                    <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/nsb-udbh-iuv" target="_blank">https://meet.google.com/nsb-udbh-iuv</a></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">11-12</td>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture English</td>
+                    <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/ubk-eusz-tdh" target="_blank">https://meet.google.com/ubk-eusz-tdh</a></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;color:black;">12-1</td>
+                    <td style="border-bottom: 1px solid grey;color:black;text-emphasis-style: bold;font-weight:bold" colspan=2>LUNCH</td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">1-2</td>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">Lecture Maths</td>
+                    <td style="border-bottom: 1px solid grey;"><a href="https://meet.google.com/yys-jbdq-dir" target="_blank">https://meet.google.com/yys-jbdq-dir</a></td>
+                    <td style="border-bottom: 1px solid grey;"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid grey;border-right: 1px solid grey;">2-3</td>
+                    <td style="border-right: 1px solid grey;" rowspan=3>EDD</td>
+                    <td rowspan=3>idk</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;">3-4</td>
+                    <!-- <td style="border-right: 1px solid grey;border-bottom: 1px solid grey;"></td> -->
+                    <!-- <td style="border-bottom: 1px solid grey;"></td>-->
+                    <td></td> 
+                </tr>
+                <tr>
+                    <td style="border-right: 1px solid grey;">4-5</td>
+                    <!-- <td style="border-right: 1px solid grey;"></td> -->
+                    <!-- <td></td> -->
+                    <td></td> 
+                </tr>
+            </table>
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </header>
+       </body>
+</html>
